@@ -15,7 +15,10 @@ self.addEventListener("install", event => {
         caches
             .open(STATIC_CACHE)
             .then(cache => cache.addAll(FILES_TO_CACHE))
-            .then(() => self.skipWaiting())
+            // .then(() => self.skipWaiting()) 
+            .catch(err => {
+                console.log(err);
+            })
     );
 });
 
